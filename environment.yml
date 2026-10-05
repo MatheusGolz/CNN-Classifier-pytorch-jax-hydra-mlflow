@@ -1,0 +1,14 @@
+# Create the environment with:  conda env create -f environment.yml
+# conda provides Python; the packages come from pip, because the GPU builds of
+# PyTorch and JAX are published there.
+name: cifar10-torch-vs-jax
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - torch
+      - torchvision
+      - jax[cuda13]          # matches the CUDA 13 build of PyTorch on PyPI (Linux/WSL2)
+      - -r requirements.txt
