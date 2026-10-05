@@ -148,17 +148,13 @@ common confusions.
 
 ### Experiment tracking in MLflow
 
+Trainning stage with GPU parallelization:
+
+![MLflow runs table](docs/TerminalTrainning.png)
+
 All 9 sweep runs with their Hydra parameters and logged metrics:
 
 ![MLflow runs table](docs/mlflow_runs.png)
-
-Hyperparameters against validation accuracy:
-
-![MLflow parallel coordinates](docs/mlflow_parallel.png)
-
-Artifacts stored with each run (confusion matrix, weights, Hydra config):
-
-![MLflow artifacts](docs/mlflow_artifacts.png)
 
 ### Keeping the comparison fair
 
