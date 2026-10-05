@@ -1,0 +1,20 @@
+# @package _global_
+#
+# Stage 1: hyperparameter sweep with PyTorch.
+# Run with:
+#   python src/train.py -m +experiment=sweep
+#
+# Hydra's basic sweeper runs every combination below: 3 x 3 = 9 runs.
+# Everything else (learning rate, batch size, epochs, seed) stays fixed.
+
+defaults:
+  - override /framework: torch
+
+mlflow:
+  experiment: cifar10-torch-sweep
+
+hydra:
+  sweeper:
+    params:
+      model.num_blocks: 1,2,3          # depth
+      model.base_channels: 16,32,64    # width

@@ -1,0 +1,2 @@
+# Train with the PyTorch implementation (src/torch_model.py).
+name: torch

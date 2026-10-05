@@ -1,0 +1,18 @@
+# Dataset (downloaded automatically)
+data/
+
+# MLflow tracking database and artifacts (model weights are large)
+mlflow.db
+mlruns/
+mlartifacts/
+
+# Hydra run folders
+outputs/
+multirun/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/

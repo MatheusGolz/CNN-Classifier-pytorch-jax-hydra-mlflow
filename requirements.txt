@@ -1,0 +1,17 @@
+# On Linux/WSL2, `pip install torch torchvision` gets the CUDA build from PyPI.
+# JAX needs its CUDA extra for GPU support: pip install -U "jax[cuda13]"  (see README).
+# Tested with: torch 2.14, torchvision 0.29, jax 0.11, flax 0.12, optax 0.2.8,
+#              hydra-core 1.3.7, mlflow 3.16, pandas 3.0, Python 3.12-3.13.
+
+torch
+torchvision
+jax
+flax>=0.12          # Flax NNX with nnx.List
+optax
+hydra-core>=1.3
+mlflow>=3.0
+numpy
+pandas
+matplotlib
+jupyter
+pytest

@@ -1,0 +1,31 @@
+# Main Hydra configuration.
+#
+# Hydra builds the final config by combining the files listed under `defaults`
+# with the settings below. Any value can be overridden from the command line, e.g.
+#   python src/train.py model.num_blocks=3 train.epochs=5
+# and a comma-separated list of values plus `-m` runs a sweep over them:
+#   python src/train.py -m model.num_blocks=1,2,3
+
+defaults:
+  - model: shallow_cnn       # conf/model/shallow_cnn.yaml -> cfg.model
+  - framework: torch         # conf/framework/torch.yaml   -> cfg.framework
+  - _self_                   # the values in this file are applied last
+
+# Seed for weight initialisation and for the order of training batches.
+seed: 42
+
+data:
+  dir: data                  # where CIFAR-10 is downloaded (relative to the repo root)
+  val_size: 5000             # images held out from the 50k training set for validation
+  split_seed: 0              # fixed, so every run sees exactly the same validation set
+
+train:
+  epochs: 15
+  batch_size: 128
+  lr: 0.001                  # Adam learning rate
+  eval_test: false           # evaluate on the test set? Only for the final comparison runs.
+  max_train_batches: null    # cap batches per epoch; only for quick smoke tests
+
+mlflow:
+  tracking_uri: sqlite:///mlflow.db   # a local database file in the repo root
+  experiment: cifar10-dev             # experiment name used for one-off runs

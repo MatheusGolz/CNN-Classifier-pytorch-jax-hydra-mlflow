@@ -1,0 +1,13 @@
+# Shallow CNN architecture (identical in the PyTorch and JAX versions).
+#
+#   input 32x32x3
+#   -> [Conv 3x3 -> ReLU -> MaxPool 2x2] x num_blocks
+#   -> Flatten -> Dense(hidden_units) -> ReLU -> Dense(num_classes)
+#
+# Block i has base_channels * 2**i filters, so channels double while the
+# image size halves (e.g. 32 -> 64 -> 128 channels for 32 -> 16 -> 8 -> 4 pixels).
+
+num_blocks: 2        # depth: swept over 1, 2, 3
+base_channels: 32    # width: swept over 16, 32, 64
+hidden_units: 128    # size of the dense layer before the output
+num_classes: 10      # CIFAR-10 has 10 classes

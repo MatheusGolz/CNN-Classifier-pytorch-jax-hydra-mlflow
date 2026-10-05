@@ -1,0 +1,2 @@
+# Train with the JAX / Flax NNX implementation (src/jax_model.py).
+name: jax

@@ -1,0 +1,20 @@
+# @package _global_
+#
+# Stage 2: train the winning architecture in both frameworks, with 3 seeds each.
+# Pass the winner from the sweep on the command line (src/select_best.py prints it):
+#   python src/train.py -m +experiment=compare model.num_blocks=2 model.base_channels=64
+#
+# That gives 2 frameworks x 3 seeds = 6 runs. Several seeds per framework
+# show whether a difference between PyTorch and JAX is real or just luck.
+
+mlflow:
+  experiment: cifar10-framework-comparison
+
+train:
+  eval_test: true      # these are the final models, so report test accuracy
+
+hydra:
+  sweeper:
+    params:
+      framework: torch,jax
+      seed: 0,1,2
