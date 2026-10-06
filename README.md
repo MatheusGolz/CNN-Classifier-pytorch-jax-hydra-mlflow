@@ -1,6 +1,6 @@
 # Shallow CNN on CIFAR-10: PyTorch vs JAX
 
-![tests](https://github.com/MatheusGolz/cifar10-torch-vs-jax/actions/workflows/tests.yml/badge.svg)
+![tests](https://github.com/MatheusGolz/CNN-Classifier-pytorch-jax-hydra-mlflow/actions/workflows/tests.yml/badge.svg)
 
 A small, end-to-end machine learning project in **Python** that trains the same
 shallow convolutional network on CIFAR-10 in **PyTorch** and in **JAX**, manages
